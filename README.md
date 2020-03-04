@@ -24,6 +24,8 @@ The [examples](./examples) directory contains a number of simple apps to try:
 
 The first set of examples make use of an [Adafruit 0.56-inch 4-digit, 7-segment LED display](http://www.adafruit.com/products/878) connected to the FT232H Breakout’s I&sup2;C pins. The display is driven by a separate library, `htk1633segment_circuitpython.py`, which is included here to make it easy to import. You can visit the library’s source repo [here](https://github.com/smittytone/HT16K33Segment-Python).
 
+The second two examples, `cpu.py` and `network.py`, require *psutil*, installed using `pip3 install psutil`.
+
 - `countdown.py` — Count down from 9999 to 0.
 - `countup.py` — Count up from 0 to 9999.
 - `cpu.py` — See your Mac’s processor utilization in real time.
