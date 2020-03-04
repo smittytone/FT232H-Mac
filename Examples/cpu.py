@@ -17,6 +17,7 @@ if __name__ == '__main__':
     # and instantiate the display
     i2c = busio.I2C(board.SCL, board.SDA)
     display = HT16K33Segment(i2c)
+    display.set_brightness(2)
 
     while True:
         # Get the CPU utilization and calculate
