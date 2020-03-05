@@ -7,7 +7,7 @@ import board
 import busio
 import digitalio
 import psutil
-from ssd1306_circuitpython import SSD1306Pro
+from ssd1306_circuitpython import SSD1306OLED
 
 # CONSTANTS
 DELAY = 0.5
@@ -21,7 +21,7 @@ if __name__ == '__main__':
     reset = digitalio.DigitalInOut(board.D7)
     reset.direction = digitalio.Direction.OUTPUT
 
-    display = SSD1306Pro(i2c, 0x3C, reset)
+    display = SSD1306OLED(i2c, 0x3C, reset)
     display.set_inverse()
 
     # Get initial values
