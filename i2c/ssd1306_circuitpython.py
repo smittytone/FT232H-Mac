@@ -1,4 +1,4 @@
-class SSD1306Pro:
+class SSD1306OLED:
     """
     A simple driver for the I2C-connected Solomon SSD1306 controller chip and an OLED display.
     For example: https:#learn.adafruit.com/adafruit-7-segment-led-featherwings/overview

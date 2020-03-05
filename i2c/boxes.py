@@ -6,7 +6,7 @@ import sys
 import board
 import busio
 import digitalio
-from ssd1306_circuitpython import SSD1306Pro
+from ssd1306_circuitpython import SSD1306OLED
 from random import seed
 from random import randint
 
@@ -30,7 +30,7 @@ if __name__ == '__main__':
     reset.direction = digitalio.Direction.OUTPUT
 
     # Set up the OLED display
-    display = SSD1306Pro(i2c, 0x3C, reset)
+    display = SSD1306OLED(i2c, 0x3C, reset)
 
     # Draw boxes in a loop
     while True:
