@@ -29,21 +29,25 @@ The last two examples, `cpu.py` and `network.py`, require *psutil*, installed us
 - [`countdown.py`](./i2c/countdown.py) — Count down from 9999 to 0.
 - [`countup.py`](./i2c/countup.py) — Count up from 0 to 9999.
 - [`cpu.py`](./i2c/cpu.py) — See your Mac’s processor utilization in real time.
-- [`network.py`](./i2c/network.py) — See a count of received packets in real time (resets at 9999).
+- [`network.py`](./i2c/network.py) — See a count of received packets in real time (resets at 9999).<br /><img Src="./images/i2c_led.png" width="600" />
 
 The following example uses an [Adafruit 128x32 OLED](https://www.adafruit.com/product/931) panel connected to the FT232H Breakout’s I&sup2;C pins. The display is driven by a separate library, `ssd1306_circuitpython.py`, which is included here to make it easy to import. `macinfo.py` also requires *psutil*, installed using `pip3 install psutil`.
 
 - [`macinfo.py`](./i2c/macinfo.py) — See a selection of Mac system info in real time.
 - [`boxes.py`](./i2c/boxes.py) — Draw random boxes on the screen.
-- [`eyes.py`](./i2c/macinfo.py) — Draw a pair of animated eyes. Watch them blink! See their mood change!
+- [`eyes.py`](./i2c/macinfo.py) — Draw a pair of animated eyes. Watch them blink! See their mood change!<br /><img src="./images/i2c_oled.png" wdith="600" />
 
 ### SPI ###
 
 There’s a separate example of using SPI with a single NeoPixel [here](https://github.com/smittytone/TaskLight).
 
+<img Src="./images/spi_neopixel.png" width="500" />
+
 ### GPIO ###
 
 - [`gpio_flash.py`](./gpio/gpio_flash.py) — A very simple LED flasher; requires a single-colour LED.
+- [`button.py`](./gpio/gpio_flash.py) — Use a physical button to trigger an action on your computer.<br /><img src="./images/gpio_button.png" width="600" />
+- [`nokia.py`](./gpio/nokia.py) — A demo app for the Nokia 5110 display. There are a number of products from Adafruit, Sparkfun and others that provide this display. The code is configured for mine; you may need to adjust the pins passed into the class constructor for whichever version you have. The display is driven by a separate library, `nokia5110_circuitpython.py`, which is included here to make it easy to import.<br /><img src="./images/gpio_niokia.png" />
 
 ### UART ###
 
