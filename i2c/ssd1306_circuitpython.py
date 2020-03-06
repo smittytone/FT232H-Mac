@@ -1,7 +1,7 @@
 class SSD1306OLED:
     """
     A simple driver for the I2C-connected Solomon SSD1306 controller chip and an OLED display.
-    For example: https:#learn.adafruit.com/adafruit-7-segment-led-featherwings/overview
+    For example: https://www.adafruit.com/product/931
     This release is written for CircuitPython
 
     Version:   1.0.0
@@ -44,10 +44,6 @@ class SSD1306OLED:
     SSD1306_VERTICAL_AND_RIGHT_HORIZONTAL_SCROLL = 0x29
     SSD1306_VERTICAL_AND_LEFT_HORIZONTAL_SCROLL = 0x2A
     SSD1306_WRITETOBUFFER = 0x40
-
-    HIGH = 1
-    LOW = 0
-    ALPHA_COUNT = 96
 
     CHARSET = [
         [0x00, 0x00],					# space - Ascii 32
@@ -158,8 +154,7 @@ class SSD1306OLED:
         -0.888,-0.904,-0.918,-0.931,-0.944,-0.955,-0.964,-0.973,-0.981,-0.987,-0.992,-0.996,-0.998,-1.000,-1.000,-0.999,-0.997,-0.993,
         -0.988,-0.982,-0.975,-0.967,-0.957,-0.947,-0.935,-0.922,-0.908,-0.893,-0.876,-0.859,-0.840,-0.821,-0.801,-0.779,-0.757,-0.733,
         -0.709,-0.684,-0.658,-0.631,-0.604,-0.575,-0.547,-0.517,-0.487,-0.456,-0.424,-0.392,-0.360,-0.327,-0.294,-0.260,-0.226,-0.192,
-        -0.158,-0.123,-0.088,-0.053,-0.018
-    ]
+        -0.158,-0.123,-0.088,-0.053,-0.018]
 
     SIN_TABLE = [
         1.000,0.999,0.998,0.994,0.990,0.985,0.978,0.970,0.961,0.951,0.939,0.927,0.913,0.898,0.882,0.865,0.847,0.828,0.808,0.787,
@@ -171,16 +166,17 @@ class SSD1306OLED:
         -0.782,-0.759,-0.736,-0.712,-0.687,-0.661,-0.635,-0.607,-0.579,-0.550,-0.520,-0.490,-0.459,-0.428,-0.396,-0.364,-0.331,
         -0.298,-0.264,-0.230,-0.196,-0.162,-0.127,-0.092,-0.057,-0.022,0.013,0.048,0.083,0.117,0.152,0.187,0.221,0.255,0.288,
         0.322,0.355,0.387,0.419,0.451,0.482,0.512,0.542,0.571,0.599,0.627,0.654,0.680,0.705,0.730,0.753,0.776,0.797,0.818,0.837,
-        0.856,0.874,0.890,0.906,0.920,0.933,0.945,0.956,0.966,0.974,0.981,0.988,0.992,0.996,0.999,1.000
-    ]
+        0.856,0.874,0.890,0.906,0.920,0.933,0.945,0.956,0.966,0.974,0.981,0.988,0.992,0.996,0.999,1.000]
 
 
-    def __init__(self, i2c, address=0x3C, RSTpin=None, width=128, height=32):
+    def __init__(self, reset_pin, i2c, address=0x3C, width=128, height=32):
+        # Just in case it hasn't been imported by the caller
         import time
 
+        # Set up instance properties
         self.i2c = i2c
         self.address = address
-        self.rst = RSTpin
+        self.rst = reset_pin
         self.width = width
         self.height = height
         self.x = 0
@@ -212,8 +208,7 @@ class SSD1306OLED:
         self.i2c.writeto(self.address, bytes([0x00, self.SSD1306_NORMALDISPLAY]))
         self.i2c.writeto(self.address, bytes([0x00, self.SSD1306_DISPLAYON]))
 
-        c = 0x03
-        if self.height == 64: c = 0x07
+        c = 0x03 if self.height == 64 else 0x07
         self.i2c.writeto(self.address, bytes([0x00, self.SSD1306_COLUMNADDR, 0x00, self.width - 1]))
         self.i2c.writeto(self.address, bytes([0x00, self.SSD1306_PAGEADDR, 0x00, c]))
 
@@ -478,7 +473,7 @@ class SSD1306OLED:
             length += (len(glyph) + 1)
         return length
 
-    # PRIVATE FUNCTIONS
+    # ***** PRIVATE FUNCTIONS *****
 
     def _render(self):
         """

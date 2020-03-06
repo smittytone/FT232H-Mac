@@ -74,7 +74,7 @@ if __name__ == '__main__':
     reset.direction = digitalio.Direction.OUTPUT
 
     # Set up OLED display
-    display = SSD1306OLED(i2c, 0x3C, reset)
+    display = SSD1306OLED(reset, i2c)
 
     mood_changed = False
     mood = EYE_MOOD.NORMAL
