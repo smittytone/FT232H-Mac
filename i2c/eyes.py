@@ -27,6 +27,7 @@ class PUPIL_SIZE(Enum):
 
 # CONSTANTS
 DELAY = 0.5
+CENTRE_SEP = 12
 
 # Set up eye data
 PUPIL_SIZES = [2, 6, 10];
@@ -49,16 +50,16 @@ def eyes_open(oled, pupil_size, pupil_dir):
 
     # Draw in the pupils
     a = pupil_dir << 2;
-    oled.circle(PUPIL_POSNS[a], PUPIL_POSNS[a + 1], PUPIL_SIZES[pupil_size], 0, True)
-    oled.circle(PUPIL_POSNS[a + 2], PUPIL_POSNS[a + 3], PUPIL_SIZES[pupil_size], 0, True);
+    oled.circle(PUPIL_POSNS[a] - CENTRE_SEP, PUPIL_POSNS[a + 1], PUPIL_SIZES[pupil_size], 0, True)
+    oled.circle(PUPIL_POSNS[a + 2] + CENTRE_SEP, PUPIL_POSNS[a + 3], PUPIL_SIZES[pupil_size], 0, True);
 
 def eyes_closed(oled):
     # Draw blank closed eyes
-    oled.circle(47, 16, 14, 0, True).circle(81, 16, 14, 0, True);
+    oled.circle(47 - CENTRE_SEP , 16, 14, 0, True).circle(81 + CENTRE_SEP, 16, 14, 0, True);
 
 def eyes_clear(oled):
     # Draw blank open eyes
-    oled.circle(47, 16, 16, 1, True).circle(81, 16, 16, 1, True)
+    oled.circle(47 - CENTRE_SEP, 16, 16, 1, True).circle(81 + CENTRE_SEP, 16, 16, 1, True)
 
 # START
 if __name__ == '__main__':
@@ -120,18 +121,18 @@ if __name__ == '__main__':
         # Add eyebrows if necessary
         if mood == EYE_MOOD.CROSS:
             # Clear the space above each eye
-            display.line(38, -10, 64, 0, 10, 0).line(66, 0, 92, -10, 10, 0)
+            display.line(38 - CENTRE_SEP, -10, 64 - CENTRE_SEP, 0, 10, 0).line(66 + CENTRE_SEP, 0, 92 + CENTRE_SEP, -10, 10, 0)
 
             if eye_state == EYE_STATE.CLOSED:
                 # Eye is closed, so close the outline
-                display.line(68, 9, 86, 1, 2, 1).line(42, 1, 60, 9, 2, 1)
+                display.line(42 - CENTRE_SEP, 1, 60 - CENTRE_SEP, 9, 2, 1).line(68 + CENTRE_SEP, 9, 86 + CENTRE_SEP, 1, 2, 1)
         elif mood == EYE_MOOD.SAD:
             # Clear the space above each eye
-            display.line(32, 0, 56, -10, 10, 0).line(72, -10, 96, 0, 10, 0)
+            display.line(32 - CENTRE_SEP, 0, 56 - CENTRE_SEP, -10, 10, 0).line(72 + CENTRE_SEP , -10, 96 + CENTRE_SEP, 0, 10, 0)
 
             if eye_state == EYE_STATE.CLOSED:
                 # Eye is closed, so close the outline
-                display.line(34, 9, 53, 1, 2, 1).line(75, 1, 94, 9, 2, 1)
+                display.line(34 - CENTRE_SEP, 9, 53 - CENTRE_SEP, 1, 2, 1).line(75 + CENTRE_SEP, 1, 94 + CENTRE_SEP, 9, 2, 1)
 
         # Did the eye state change? Set the new state now for the next iteration
         if next_state != -1: eye_state = next_state
