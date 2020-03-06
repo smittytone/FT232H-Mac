@@ -35,7 +35,7 @@ The following example uses an [Adafruit 128x32 OLED](https://www.adafruit.com/pr
 
 - [`macinfo.py`](./i2c/macinfo.py) — See a selection of Mac system info in real time.
 - [`boxes.py`](./i2c/boxes.py) — Draw random boxes on the screen.
-- [`eyes.py`](./i2c/macinfo.py) — Draw a pair of animated eyes. Watch them blink! See their mood change!<br /><img src="./images/i2c_oled.png" wdith="600" />
+- [`eyes.py`](./i2c/macinfo.py) — Draw a pair of animated eyes. Watch them blink! See their mood change!<br /><img src="./images/i2c_oled.png" width="600" />
 
 ### SPI ###
 
