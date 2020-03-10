@@ -31,7 +31,11 @@ The last two examples, `cpu.py` and `network.py`, require *psutil*, installed us
 - [`cpu.py`](./i2c/cpu.py) — See your Mac’s processor utilization in real time.
 - [`network.py`](./i2c/network.py) — See a count of received packets in real time (resets at 9999).<br /><img Src="./images/i2c_led.png" width="600" />
 
-The following example uses an [Adafruit 128x32 OLED](https://www.adafruit.com/product/931) panel connected to the FT232H Breakout’s I&sup2;C pins. The display is driven by a separate library, `ssd1306_circuitpython.py`, which is included here to make it easy to import. `macinfo.py` also requires *psutil*, installed using `pip3 install psutil`.
+The following example uses an [Adafruit MCP9808 temperature sensor breakout](https://www.adafruit.com/product/1782) along with the seven-segment LED. To make use of the sensor, you need to install its driver library as follows: `sudo pip3 install adafruit-circuitpython-mcp9808`. That done you can run the code to display the current ambient temperature on the LED.
+
+- [`mcp9808.py`](./i2c/mcp9808.py) — Display atmospheric temperature readings.<br /><img src="./images/i2c_mcp9808.png" width="600" />
+
+The following examples use an [Adafruit 128x32 OLED](https://www.adafruit.com/product/931) panel connected to the FT232H Breakout’s I&sup2;C pins. The display is driven by a separate library, `ssd1306_circuitpython.py`, which is included here to make it easy to import. `macinfo.py` also requires *psutil*, installed using `pip3 install psutil`.
 
 - [`macinfo.py`](./i2c/macinfo.py) — See a selection of Mac system info in real time.
 - [`boxes.py`](./i2c/boxes.py) — Draw random boxes on the screen.
@@ -67,4 +71,25 @@ crw-rw-rw- 1 root wheel 18,  5 Mar  4 09:40 /dev/cu.TSAirPods-WirelessiAP
 crw-rw-rw- 1 root wheel 18, 17 Mar  4 17:10 /dev/cu.usbserial-1470
 ```
 
-The entry `/dev/cu.usbserial-1470` is your FT232H Breakout as a serial port.
+The entry `/dev/cu.usbserial-xxxx` is your FT232H Breakout as a serial port.
+
+You can now run *screen* to view the data coming in on the UART:
+
+```
+screen /dev/cu.usbserial-1470 9600
+```
+
+You can also control the UART via Python using the [PySerial](https://pyserial.readthedocs.io/en/latest/index.html) module. Install PySerial using:
+
+```
+pip install pyserial
+```
+
+And then you can run code as follows:
+
+```python
+import serial
+uart = serial.Serial("/dev/cu.usbserial-1470")  # open serial port
+uart.write(b"Hello, world")                     # write a string
+uart.close()                                    # close port
+```
