@@ -26,6 +26,8 @@ The first set of examples make use of an [Adafruit 0.56-inch 4-digit, 7-segment 
 
 The last two examples, `cpu.py` and `network.py`, require *psutil*, installed using `pip3 install psutil`.
 
+**Note** Don’t forget to connect pins D1 and D2 directly in addition to using D1 as the I2C SDA pin.
+
 - [`countdown.py`](./i2c/countdown.py) — Count down from 9999 to 0.
 - [`countup.py`](./i2c/countup.py) — Count up from 0 to 9999.
 - [`cpu.py`](./i2c/cpu.py) — See your Mac’s processor utilization in real time.
