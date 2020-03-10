@@ -16,7 +16,7 @@ class HT16K33Segment:
     HT16K33_CMD_BRIGHTNESS = 0xE0
     HT16K33_SYSTEM_ON = 0x21
     HT16K33_COLON_ROW = 0x04
-    HT16K33_MINUS_CHAR = 0x1
+    HT16K33_MINUS_CHAR = 0x10
     HT16K33_DEGREE_CHAR = 0x11
 
     # The positions of the segments within the buffer

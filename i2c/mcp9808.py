@@ -22,15 +22,17 @@ if __name__ == '__main__':
     while True:
         # Convert 'count' into a float string with two decimal
         # places, padding with initial zeroes as necessary
-        temp = "{:.2f}".format(mcp.temperature)
-        if len(temp) < 5: temp = "0" + temp
+        reading_temp = mcp.temperature
+        display_temp = "{:.2f}".format(reading_temp)
+        if reading_temp >= 0 and len(display_temp) < 5:
+            display_temp = "0" + display_temp
 
         # Display 'temp'
-        display.set_char(temp[0], 0)
+        display.set_char(display_temp[0], 0)
         # 'True' to add a decimal point after this digit
-        display.set_char(temp[1], 1, True)
-        display.set_char(temp[3], 2)
-        display.set_char(temp[4], 3)
+        display.set_char(display_temp[1], 1, True)
+        display.set_char(display_temp[3], 2)
+        display.set_char(display_temp[4], 3)
         display.update()
 
         # Pause for breath
