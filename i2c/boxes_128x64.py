@@ -15,7 +15,7 @@ DELAY = 0.5
 
 # FUNCTIONS
 def make_rect():
-    return (randint(-10, 137), randint(-10, 41), randint(10, 80), randint(10, 20))
+    return (randint(-10, 137), randint(-10, 53), randint(10, 80), randint(10, 20))
 
 # START
 if __name__ == '__main__':
@@ -30,7 +30,7 @@ if __name__ == '__main__':
     reset.direction = digitalio.Direction.OUTPUT
 
     # Set up the OLED display
-    display = SSD1306OLED(i2c, 0x3C, reset)
+    display = SSD1306OLED(reset, i2c, 0x3D, 128, 64)
 
     # Draw boxes in a loop
     while True:

@@ -37,11 +37,13 @@ The following example uses an [Adafruit MCP9808 temperature sensor breakout](htt
 
 - [`mcp9808.py`](./i2c/mcp9808.py) — Display atmospheric temperature readings.<br /><img src="./images/i2c_mcp9808.png" width="600" />
 
-The following examples use an [Adafruit 128x32 OLED](https://www.adafruit.com/product/931) panel connected to the FT232H Breakout’s I&sup2;C pins. The display is driven by a separate library, `ssd1306_circuitpython.py`, which is included here to make it easy to import. `macinfo.py` also requires *psutil*, installed using `pip3 install psutil`.
+The following examples use either an [Adafruit 128x32 OLED](https://www.adafruit.com/product/931) or an [Adafruit 128x64 OLED](https://www.adafruit.com/product/326) panel connected to the FT232H Breakout’s I&sup2;C pins. Either display is driven by a separate library, `ssd1306_circuitpython.py`, which is included here to make it easy to import. `macinfo.py` also requires *psutil*, installed using `pip3 install psutil`.
 
-- [`macinfo.py`](./i2c/macinfo.py) — See a selection of Mac system info in real time.
-- [`boxes.py`](./i2c/boxes.py) — Draw random boxes on the screen.
-- [`eyes.py`](./i2c/macinfo.py) — Draw a pair of animated eyes. Watch them blink! See their mood change!<br /><img src="./images/i2c_oled.png" width="600" />
+- [`macinfo_128x32.py`](./i2c/macinfo_128x32.py) — See a selection of Mac system info in real time.
+- [`macinfo_128x64.py`](./i2c/macinfo_128x64.py) — See a wider selection of Mac system info in real time on a 128x64 display.
+- [`boxes_128x32.py`](./i2c/boxes_128x32.py) — Draw random boxes on the screen.
+- [`boxes_128x64.py`](./i2c/boxes_128x64.py) — As above but for the 128x64 display.
+- [`eyes_128x32.py`](./i2c/eyes_128x32.py) — Draw a pair of animated eyes. Watch them blink! See their mood change!<br /><img src="./images/i2c_oled.png" width="600" />
 
 ### SPI ###
 
