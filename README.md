@@ -95,5 +95,6 @@ And then you can run code as follows:
 import serial
 uart = serial.Serial("/dev/cu.usbserial-1470")  # open serial port
 uart.write(b"Hello, world")                     # write a string
+uart.read_until()                               # Wait for a response terminated by a newline
 uart.close()                                    # close port
 ```
