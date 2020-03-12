@@ -98,3 +98,7 @@ uart.write(b"Hello, world")                     # write a string
 uart.read_until()                               # Wait for a response terminated by a newline
 uart.close()                                    # close port
 ```
+
+The files `m2m_ft232h.py`, `m2m_other.py` and `m2m_lines.txt` provide a fun example of UART usage. It requires a second USB-to-UART adaptor, such as a second FT232H or and FTDI cable. You can connect them to USB ports on one machine (you’ll also need to open a second *Terminal* tab) or on two machines. In either case, you connect the TX and RX pins of one to the RX and TX pins of the other. You’ll need to modify `m2m_ft232h.py` and `m2m_other.py` to enter the Unix files representing, respectively, your FT232H and whatever other adaptor you’re using. If you’re using a second machine, copy `m2m_other.py` and `m2m_lines.txt` to it and place them in the same folder.
+
+Now enter `python3 m2m_other.py` at the command line; the code will waiting for a message. Quickly enter `python3 m2m_ft232h.py` in the other *Terminal* tab. You should see the two machines engaging in a conversation, of sorts, over the UART link.My mis
