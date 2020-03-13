@@ -2,7 +2,6 @@
 
 # IMPORTS
 import time
-import sys
 import board
 import busio
 import digitalio
@@ -44,6 +43,3 @@ if __name__ == '__main__':
 
         display.draw()
         time.sleep(DELAY)
-
-# Exit on break
-sys.exit(-1)

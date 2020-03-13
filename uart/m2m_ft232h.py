@@ -53,4 +53,3 @@ while True:
 
 # Loop complete so close the serial port and quit
 serial_port.close()
-sys.exit(-1)

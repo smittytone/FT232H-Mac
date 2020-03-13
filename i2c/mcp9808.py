@@ -2,7 +2,6 @@
 
 # IMPORTS
 import time
-import sys
 import board
 import busio
 import adafruit_mcp9808
@@ -37,6 +36,3 @@ if __name__ == '__main__':
 
         # Pause for breath
         time.sleep(DELAY)
-
-# Exit on break
-sys.exit(-1)

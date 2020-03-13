@@ -44,6 +44,3 @@ while True:
         led.value = False
     # Pause for a millisecond
     time.sleep(0.001)
-
-# Exit on break
-sys.exit(-1)

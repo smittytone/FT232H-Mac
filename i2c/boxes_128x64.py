@@ -2,7 +2,6 @@
 
 # IMPORTS
 import time
-import sys
 import board
 import busio
 import digitalio
@@ -15,7 +14,7 @@ DELAY = 0.5
 
 # FUNCTIONS
 def make_rect():
-    return (randint(-10, 137), randint(-10, 53), randint(10, 80), randint(10, 20))
+    return (randint(-10, 137), randint(-10, 53), randint(10, 80), randint(10, 50))
 
 # START
 if __name__ == '__main__':
@@ -44,6 +43,3 @@ if __name__ == '__main__':
 
         display.draw()
         time.sleep(DELAY)
-
-# Exit on break
-sys.exit(-1)

@@ -103,6 +103,3 @@ display.print_text("Hello World")
 
 while True:
     time.sleep(1)
-
-# Exit on break
-sys.exit(-1)
